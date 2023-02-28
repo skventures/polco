@@ -33,30 +33,30 @@
     // is not what our real code looks like!
     const tbody = document.getElementsByTagName("tbody")[0];
 
-    fantasyExample.answersSets.forEach((answerSet, i) =>
+    fantasyExample.responsesSets.forEach((responseSet, i) =>
       tbody.insertAdjacentHTML(
         "beforeend",
-        createRow(fantasyExample.survey, answerSet, `Fantasy ${i}`)
+        createRow(fantasyExample.survey, responseSet, `Fantasy ${i}`)
       )
     );
 
-    foodExample.answersSets.forEach((answerSet, i) =>
+    foodExample.responsesSets.forEach((responseSet, i) =>
       tbody.insertAdjacentHTML(
         "beforeend",
-        createRow(foodExample.survey, answerSet, `Food ${i}`)
+        createRow(foodExample.survey, responseSet, `Food ${i}`)
       )
     );
 
-    function createRow(survey, answerSet, testNumber) {
+    function createRow(survey, responseSet, testNumber) {
       return `<tr>
           <td>
             ${testNumber}
           </td>
           <td>
-            ${answerSet.expected}
+            ${responseSet.expected}
           </td>
           <td>
-            ${areAnswersValid(survey, answerSet.answers) ? "valid" : "invalid"}
+            ${areResponsesValid(survey, responseSet.responses) ? "valid" : "invalid"}
           </td>
         </tr>`;
     }
